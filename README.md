@@ -36,6 +36,26 @@ This project demonstrates a comprehensive approach to **Lifetime Value (LTV) pre
 - Comprehensive error handling and logging
 - Production-ready code with proper documentation
 
+**⚠️ Data Quality Issues Identified & Resolved:**
+
+**1. Event Time vs Event Date Inconsistency:**
+- **Issue**: Converting `event_time` (Unix timestamp) to datetime revealed mismatches with `event_date` column
+- **Investigation**: Multiple cleaning approaches attempted but root cause could not be determined
+- **Resolution**: `event_time` excluded from feature engineering to maintain data integrity
+- **Impact**: Limited temporal feature creation but ensured reliable date-based analysis
+
+**2. Invalid First Event Sequences:**
+- **Issue**: Some users have `auto_renew_off` as their first event, which is logically impossible
+- **Investigation**: Insufficient domain knowledge to determine if this represents data corruption or business logic
+- **Resolution**: Left unchanged to avoid introducing assumptions that could affect model accuracy
+- **Impact**: Potential noise in behavioral features but preserves original data structure
+
+**3. Target Variable Inconsistency:**
+- **Issue**: Same user had multiple `first_year_revenue` values across different event logs (both 0 and positive amounts)
+- **Investigation**: Identified as data duplication issue where user-level aggregation was needed
+- **Resolution**: Applied MAX aggregation per user to ensure single, consistent target value
+- **Impact**: Eliminated target variable duplication, improved model training reliability
+
 ![Cohort Revenue Comparison](final/model_training/results/cohort_revenue_comparison_with_OS.png)
 
 ---
