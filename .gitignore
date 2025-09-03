@@ -1,5 +1,4 @@
 # Data files
-*.parquet
 *.csv
 *.xlsx
 *.xls
@@ -79,7 +78,6 @@ final/model_training/data/*.csv
 
 # Results that can be regenerated
 final/model_training/results/*.csv
-final/model_training/results/*.png
 final/model_training/results/*.json
 final/pipeline/*.csv
 final/pipeline/*.json
