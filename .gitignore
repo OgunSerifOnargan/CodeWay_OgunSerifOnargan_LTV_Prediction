@@ -1,0 +1,85 @@
+# Data files
+*.parquet
+*.csv
+*.xlsx
+*.xls
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Archive and garbage
+final/pipeline/archive/
+final/pipeline/garbage/
+final/pipeline_scripts/
+
+# Model files (can be large)
+final/model_training/models/*.pkl
+final/model_training/data/*.csv
+
+# Results that can be regenerated
+final/model_training/results/*.csv
+final/model_training/results/*.png
+final/model_training/results/*.json
+final/pipeline/*.csv
+final/pipeline/*.json
