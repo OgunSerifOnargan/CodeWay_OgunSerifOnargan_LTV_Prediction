@@ -4,10 +4,11 @@ Hello 👋
 
 I’m Ogün. First of all, thank you for providing such a nice and relatively clean dataset 🙏 It was a pleasure to work with, and I was able to explore and create some meaningful features. Even though my time was limited (TÜBİTAK report deadlines 😅), I tried to cover different angles with EDA and feature aggregation.
 
+I intentionally prioritized breadth over depth within the limited time. I’m aware that there are additional EDA steps, statistical methods, and ML techniques that could further improve the results, and I’m confident in applying them when needed.
+
 While the results are not the absolute best, I was happy to see that they followed the actual values reasonably well. This task also gave me the chance to revisit numerical and statistical problems I’ve really missed. Although I’ve been mainly focused on computer vision for the past 2 years, working on this kind of problem felt refreshing and genuinely enjoyable.
 
 I hope you find my work interesting.
-
 Best regards,
 
 Ogün
@@ -132,7 +133,17 @@ Our evaluation framework provides comprehensive assessment across multiple dimen
 **Model Limitations & Further Works:**
 
 **Current Limitations:**
-- **Conservative Predictions**: Model tends to predict small LTV values for most users, limiting high-value user identification
+- **Conservative Prediction Bias**: Model consistently predicts small positive LTV values (typically $0.20-$5.00) for ALL users, including those with zero actual revenue. This creates a fundamental problem where:
+  - **Zero Revenue Users**: 100% of users with $0 actual LTV receive positive predictions
+  - **False Positive Rate**: Extremely high (99.995%) for non-paying user identification
+  - **Revenue Distribution Skew**: Model cannot distinguish between truly non-paying users and low-value users
+  - **Business Impact**: Marketing teams cannot reliably identify users who will never convert
+
+- **Classification vs Regression Challenge**: The current regression approach treats zero-revenue users as "very low value" rather than "non-paying", leading to:
+  - **Continuous Value Spectrum**: Model predicts continuous values instead of discrete categories
+  - **Threshold Ambiguity**: No clear cutoff between paying and non-paying users
+  - **Revenue Estimation Error**: Systematic overestimation for non-converting users
+
 - **Feature Sensitivity**: Heavy reliance on subscription-related features may not capture long-term user value patterns
 - **Temporal Stability**: 15-day window may not capture seasonal or trend-based behavioral changes
 
@@ -151,7 +162,12 @@ Our evaluation framework provides comprehensive assessment across multiple dimen
 - **Deep Learning Features**: Implement LSTM-based sequence modeling for user behavior patterns
 
 **3. Model Architecture Improvements:**
-- **Two-Stage Approach**: Classification (paying vs non-paying) + Regression (LTV amount) pipeline
+- **Two-Stage Classification + Regression Pipeline**: 
+  - **Stage 1 - Binary Classification**: Predict whether user will pay (paying vs non-paying) using specialized features for conversion prediction
+  - **Stage 2 - Revenue Regression**: For predicted paying users only, estimate actual LTV amount using revenue-focused features
+  - **Benefits**: Eliminates zero-revenue prediction bias, provides clear user segmentation, improves business interpretability
+  - **Implementation**: Use Random Forest/Logistic Regression for classification, LightGBM for regression on positive class
+
 - **Ensemble Methods**: Stack multiple models with different strengths for improved accuracy
 - **Hyperparameter Optimization**: Implement advanced tuning with Optuna or similar frameworks
 - **Cross-Validation Strategy**: Time-based CV to prevent temporal data leakage
