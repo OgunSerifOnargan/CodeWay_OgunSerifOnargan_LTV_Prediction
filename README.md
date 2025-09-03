@@ -273,11 +273,52 @@ Our pipeline demonstrates enterprise-grade software engineering practices:
 
 ## Getting Started
 
-1. **Environment Setup**: Install required dependencies
-2. **Data Loading**: Run the data cleaning pipeline
-3. **Feature Engineering**: Execute feature creation scripts
-4. **Model Training**: Train and evaluate models
-5. **Prediction**: Generate LTV predictions for new users
+### **1. Environment Setup**
+
+**Install Python Dependencies:**
+```bash
+# Create virtual environment (recommended)
+python -m venv ltv_env
+source ltv_env/bin/activate  # On Windows: ltv_env\Scripts\activate
+
+# Install requirements
+pip install -r requirements.txt
+```
+
+**Database Setup:**
+```bash
+# PostgreSQL connection (update credentials in scripts)
+# Default: postgresql://ogunserifonargan@localhost:5432/lvp_database
+```
+
+### **2. Pipeline Execution**
+
+**Run Full Pipeline:**
+```bash
+cd final/pipeline
+python run_full_pipeline.py
+```
+
+**Individual Steps:**
+```bash
+# Data cleaning
+python data_cleaning/load_parquet_to_postgres_chunked.py
+
+# Feature engineering
+python feature_creation/create_revenue_features_parallel.py
+python feature_creation/create_rfm_features_table.py
+# ... other feature scripts
+
+# Model training
+python model_training/train_models.py
+python model_training/predict_ltv.py
+```
+
+### **3. Expected Output**
+- **Database Tables**: All feature tables with `test_` prefix
+- **Model Files**: Trained models in `final/model_training/models/`
+- **Results**: Predictions and evaluation reports
+- **Visualizations**: Cohort analysis charts and feature importance plots
 
 For detailed technical implementation, refer to the [Pipeline Development Report](final/ara_raporlar/model_building_pipeline_development_report.md).
 
