@@ -264,20 +264,5 @@ For detailed technical implementation, refer to the [Pipeline Development Report
 **📧 Email:** onarganogun@gmail.com  
 **📱 Phone:** +90 506 288 44 67
 
-**🔗 LinkedIn:** [Ogun Serif Onargan](https://www.linkedin.com/in/ogunserifonargan/)  
-**🌐 Portfolio:** [ogunserifonargan.com](https://ogunserifonargan.com)
-
-**💼 Current Role:** Senior Data Scientist at [Company Name]  
-**🎯 Expertise:** Machine Learning, Deep Learning, MLOps, Computer Vision, NLP
-
-**📚 Project Highlights:**
-- **LTV Prediction**: 98.4% revenue accuracy with 25 engineered features
-- **Computer Vision**: Image processing models with Weight & Biases integration
-- **MLOps**: Production-ready ML pipelines with monitoring and A/B testing
-- **Cloud Platforms**: Experience with Google Vertex AI and AWS services
-
-**🚀 Technical Skills:**
-- **Languages:** Python, SQL, R, JavaScript
-- **ML/DL:** TensorFlow, PyTorch, Scikit-learn, LightGBM, XGBoost
-- **Cloud:** AWS, GCP, Azure, Docker, Kubernetes
-- **Tools:** Git, MLflow, Weight & Biases, Apache Airflow
+**📧 Email:** onarganogun@gmail.com  
+**📱 Phone:** +90 506 288 44 67

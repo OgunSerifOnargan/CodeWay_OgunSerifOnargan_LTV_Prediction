@@ -2,7 +2,6 @@
 ## Question C: Thorough Evaluation on Predictions (User-Level & Cohort-Level)
 
 **Project**: LTV Prediction Case Study  
-**Date**: January 2025  
 **Model**: LightGBM with 25 Features  
 **Dataset**: 15-day app engagement → 1-year revenue prediction  
 
