@@ -2,6 +2,17 @@
 
 ## Summary
 
+Hello 👋
+
+I’m Ogün. First of all, thank you for providing such a nice and relatively clean dataset 🙏 It was a pleasure to work with, and I was able to explore and create some meaningful features. Even though my time was limited (TÜBİTAK report deadlines 😅), I tried to cover different angles with EDA and feature aggregation.
+
+While the results are not the absolute best, I was happy to see that they followed the actual values reasonably well. This task also gave me the chance to revisit numerical and statistical problems I’ve really missed. Although I’ve been mainly focused on computer vision for the past 2 years, working on this kind of problem felt refreshing and genuinely enjoyable.
+
+I hope you find my work interesting.
+
+Best regards,
+Ogün
+
 This project demonstrates a comprehensive approach to **Lifetime Value (LTV) prediction** using machine learning techniques applied to mobile app user behavior data. The goal is to predict 1-year revenue for users based on their first 15 days of app engagement, enabling data-driven marketing strategies and budget optimization.
 
 **🎯 Key Achievements:**
